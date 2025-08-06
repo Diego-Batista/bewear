@@ -1,19 +1,25 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import SignIn from "./_components/sign-in-form";
-import SignUp from "./_components/sign-up-form";
+import SignInForm from "./_components/sign-in-form";
+import SignUpForm from "./_components/sign-up-form";
 
-const Authentication = () => {
+const Authentication = async () => {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6 p-5">
-      <Tabs defaultValue="sign-in">
-        <TabsList>
-          <TabsTrigger value="sign-in">Entrar</TabsTrigger>
-          <TabsTrigger value="sign-up">Criar Conta</TabsTrigger>
-        </TabsList>
-        <SignIn />
-        <SignUp />
-      </Tabs>
-    </div>
+    <>
+      <div className="flex w-full flex-col gap-6 p-5">
+        <Tabs defaultValue="sign-in">
+          <TabsList>
+            <TabsTrigger value="sign-in">Entrar</TabsTrigger>
+            <TabsTrigger value="sign-up">Criar conta</TabsTrigger>
+          </TabsList>
+          <TabsContent value="sign-in" className="w-full">
+            <SignInForm />
+          </TabsContent>
+          <TabsContent value="sign-up" className="w-full">
+            <SignUpForm />
+          </TabsContent>
+        </Tabs>
+      </div>
+    </>
   );
 };
 
